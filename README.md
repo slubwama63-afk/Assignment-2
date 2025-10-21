@@ -1,35 +1,39 @@
-# Assignment 2 – Fetch, Async/Await & Array Methods
+Assignment 2
 
-#Inledning
-I den här uppgiften tränar jag på att använda fetch tillsammans med async/await för att hämta data från ett API.  
-Jag använder även flera av JavaScripts inbyggda array-metoder för att sortera, filtrera, reducera och omvandla data.  
-Allt skrivs ut direkt i webbläsarens console (det behövs alltså ingen visning i HTML).
+Inledning:
+Den här uppgiften bygger vidare på samma kodstil och struktur som jag använt i Assignment 1 och End Project, för att hålla en tydlig och enhetlig kodbas genom hela kursen.
 
-API:et jag använder är [TheMealDB](https://www.themealdb.com) som innehåller information om olika maträtter, kategorier och ingredienser.  
+Syfte:
+Syftet med uppgiften är att träna på att använda fetch, async/await och olika array-metoder för att hämta och bearbeta data från ett API.
 
+Beskrivning:
+Jag använder TheMealDB API för att hämta en lista med måltider.
+All bearbetning och utskrift sker i konsolen, inte i HTML-filen.
 
+Så här fungerar koden:
+- Jag börjar med att hämta data från API:et med fetch och omvandlar svaret till JSON.
 
-#Kodens flöde och logik
+- När datan har laddats använder jag olika array-metoder för att jobba med den:
 
-1. Hämta data från API
-Programmet hämtar måltider med fetch() från TheMealDB:s öppna API.  
-Med await response.json() omvandlas svaret till ett JavaScript-objekt.  
-Hämtningen sker i en asynkron funktion (`async function fetchMeals()`).
+.sort() och .slice() för att visa de fem första måltiderna i alfabetisk ordning.
 
-2. Sortera och visa de fem första måltiderna
-- .map() används för att hämta endast namnen (strMeal).
-- .sort((a, b) => a.localeCompare(b)) sorterar alfabetiskt.
-- .slice(0, 5) plockar ut de fem första resultaten.
-- Utskriften sker direkt i konsolen.
+.filter() för att visa måltider från en viss kategori.
 
-3. Filtrera på kategori
-- .filter() används för att bara visa måltider från en viss kategori, t.ex. “Chicken”.
-- .toLowerCase() används på båda jämförelsesidorna så att sökningen inte är skiftlägeskänslig.
-- Resultatet visas som namn + kategori i konsolen.
+.reduce() för att räkna hur många måltider som finns i varje kategori.
 
-4. Räkna antal måltider per kategori
-- .reduce() används för att skapa ett nytt objekt som räknar hur många gånger varje kategori förekommer.
-- Exempel på resultat:
-  	json
-  { "Chicken": 6, "Beef": 4, "Seafood": 3 }
+- Resultaten skrivs ut direkt i konsolen.
+
+1. Jag har också lagt till några extra funktioner (stretch goals) för att:
+
+2. Gruppera måltider efter kategori,
+
+3. Skapa enklare objekt med bara viktiga fält,
+
+4. Och räkna hur ofta varje ingrediens förekommer.
+
+Kommentarer:
+Alla steg i koden är kommenterade direkt i app.js för att förklara vad som händer och hur flödet fungerar.
+
+Reflektion:
+Den här uppgiften gjorde det tydligare hur man kan kombinera fetch och asynkron kod med array-metoder för att hantera JSON-data på ett effektivt och strukturerat sätt. Det gav också en bra förståelse för hur man kan filtrera, sortera och omvandla data på flera olika sätt.
 
